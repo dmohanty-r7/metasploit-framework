@@ -33,7 +33,7 @@ class Metasploit3 < Msf::Post
             'joev'
           ],
         'Platform'      => [ 'osx' ],
-        'SessionTypes'  => [ 'meterpreter', 'shell' ],
+        'SessionTypes'  => [ 'shell' ],
         'Actions'       => [
           [ 'LIST',    { 'Description' => 'Show a list of stored network share credentials' } ],
           [ 'MOUNT',   { 'Description' => 'Mount a network shared volume using stored credentials' } ],

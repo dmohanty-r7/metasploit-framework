@@ -22,7 +22,7 @@ class Metasploit3 < Msf::Post
       'License'       => MSF_LICENSE,
       'Author'        => [ 'ipwnstuff <e[at]ipwnstuff.com>', 'joev' ],
       'Platform'      => [ 'osx' ],
-      'SessionTypes'  => [ 'meterpreter', 'shell' ]
+      'SessionTypes'  => [ 'shell' ]
     ))
 
     register_options(

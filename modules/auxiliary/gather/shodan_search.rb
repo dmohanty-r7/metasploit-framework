@@ -112,12 +112,7 @@ class Metasploit4 < Msf::Auxiliary
     results[page] = shodan_query(query, apikey, page)
 
     if results[page]['total'].nil? || results[page]['total'] == 0
-      msg = "No results."
-      if results[page]['error'].to_s.length > 0
-        msg << " Error: #{results[page]['error']}"
-      end
-      print_error(msg)
-      return
+      print_error('No Results Found!')
     end
 
     # Determine page count based on total results
