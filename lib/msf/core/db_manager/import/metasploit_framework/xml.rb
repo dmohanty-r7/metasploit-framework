@@ -88,7 +88,7 @@ module Msf::DBManager::Import::MetasploitFramework::XML
     report_note(note_data)
   end
 
-  # Imports web_form element using {Msf::DBManager#report_web_form}.
+  # Imports web_form element using Msf::DBManager#report_web_form.
   #
   # @param element [REXML::Element] web_form element.
   # @param options [Hash{Symbol => Object}] options
@@ -124,7 +124,7 @@ module Msf::DBManager::Import::MetasploitFramework::XML
     end
   end
 
-  # Imports web_page element using {Msf::DBManager#report_web_page}.
+  # Imports web_page element using Msf::DBManager#report_web_page.
   #
   # @param element [REXML::Element] web_page element.
   # @param options [Hash{Symbol => Object}] options
@@ -171,7 +171,7 @@ module Msf::DBManager::Import::MetasploitFramework::XML
     end
   end
 
-  # Imports web_vuln element using {Msf::DBManager#report_web_vuln}.
+  # Imports web_vuln element using Msf::DBManager#report_web_vuln.
   #
   # @param element [REXML::Element] web_vuln element.
   # @param options [Hash{Symbol => Object}] options
@@ -228,13 +228,11 @@ module Msf::DBManager::Import::MetasploitFramework::XML
   # them.
   # TODO: loot, tasks, and reports
   def import_msf_xml(args={}, &block)
-
     data = args[:data]
     wspace = args[:wspace] || workspace
     bl = validate_ips(args[:blacklist]) ? args[:blacklist].split : []
 
     doc = Nokogiri::XML::Reader.from_memory(data)
-
     metadata = check_msf_xml_version!(doc.first.name)
     allow_yaml = metadata[:allow_yaml]
     btag = metadata[:root_tag]
@@ -627,7 +625,6 @@ module Msf::DBManager::Import::MetasploitFramework::XML
     info[:ssl] = (info[:ssl] and info[:ssl].to_s.strip.downcase == "true") ? true : false
 
     specialized_info = specialization.call(element, options)
-
     info.merge!(specialized_info)
 
     self.send("report_web_#{type}", info)
